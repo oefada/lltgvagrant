@@ -36,10 +36,10 @@ mkdir /mnt/images
 mount /mnt/images
 
 # Host entries
-echo "127.0.1.1 lldev.luxurylink.com" >> /etc/hosts
-echo "127.0.1.1 dev-vacationist.luxurylink.com" >> /etc/hosts
-echo "127.0.1.1 dev-toolbox.luxurylink.com" >> /etc/hosts
-echo "127.0.1.1 dev.api.luxurylink.com" >> /etc/hosts
+# echo "127.0.1.1 lldev.luxurylink.com" >> /etc/hosts
+# echo "127.0.1.1 dev-vacationist.luxurylink.com" >> /etc/hosts
+# echo "127.0.1.1 dev-toolbox.luxurylink.com" >> /etc/hosts
+# echo "127.0.1.1 dev.api.luxurylink.com" >> /etc/hosts
 
 ### Application setup
 
