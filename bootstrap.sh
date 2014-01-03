@@ -46,7 +46,7 @@ echo "127.0.1.1 dev.api.luxurylink.com" >> /etc/hosts
 # Luxury Link
 # ln -s /var/www/luxurylink/app/config/ConfigLL-DEV.php /var/www/luxurylink/app/config/ConfigLL.php
 # ln -s /mnt/images /var/www/luxurylink/php/images
-# mkdir /var/www/luxurylink/smarty/cache
+# mkdir /var/www/luxurylink/smarty/cache /var/www/luxurylink/smarty/templates_c
 # chmod 777 /var/www/luxurylink/smarty/cache /var/www/luxurylink/smarty/templates_c
 
 # Toolbox
