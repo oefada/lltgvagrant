@@ -21,10 +21,21 @@ git clone http://git.luxurylink.com/scm/ldc/nginx.git /etc/nginx
 git clone http://git.luxurylink.com/scm/ldc/php5.git /etc/php5
 
 # Symlink docroots
-ln -s /media/psf/vagrant/luxurylink /var/www/luxurylink
-ln -s /media/psf/vagrant/appshared /var/www/appshared
-ln -s /media/psf/vagrant/toolbox /var/www/toolbox
-ln -s /media/psf/vagrant/vacationist /var/www/vacationist
+if [ -d "/media/psf/vagrant" ]
+then
+    # parallels
+    ln -s /media/psf/vagrant/luxurylink /var/www/luxurylink
+    ln -s /media/psf/vagrant/appshared /var/www/appshared
+    ln -s /media/psf/vagrant/toolbox /var/www/toolbox
+    ln -s /media/psf/vagrant/vacationist /var/www/vacationist
+elif [ -d "/vagrant" ]
+then
+    # virtualbox
+    ln -s /vagrant/luxurylink /var/www/luxurylink
+    ln -s /vagrant/appshared /var/www/appshared
+    ln -s /vagrant/toolbox /var/www/toolbox
+    ln -s /vagrant/vacationist /var/www/vacationist
+fi
 
 # Start services
 service apache2 start
