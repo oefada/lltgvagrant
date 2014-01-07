@@ -24,18 +24,17 @@ git clone http://git.luxurylink.com/scm/ldc/php5.git /etc/php5
 if [ -d "/media/psf/vagrant" ]
 then
     # parallels
-    ln -s /media/psf/vagrant/luxurylink /var/www/luxurylink
-    ln -s /media/psf/vagrant/appshared /var/www/appshared
-    ln -s /media/psf/vagrant/toolbox /var/www/toolbox
-    ln -s /media/psf/vagrant/vacationist /var/www/vacationist
+    sharedDirectory="/media/psf/vagrant"
 elif [ -d "/vagrant" ]
 then
     # virtualbox
-    ln -s /vagrant/luxurylink /var/www/luxurylink
-    ln -s /vagrant/appshared /var/www/appshared
-    ln -s /vagrant/toolbox /var/www/toolbox
-    ln -s /vagrant/vacationist /var/www/vacationist
+    sharedDirectory="/vagrant"
 fi
+
+ln -s $sharedDirectory/luxurylink /var/www/luxurylink
+ln -s $sharedDirectory/appshared /var/www/appshared
+ln -s $sharedDirectory/toolbox /var/www/toolbox
+ln -s $sharedDirectory/vacationist /var/www/vacationist
 
 # Start services
 service apache2 start
