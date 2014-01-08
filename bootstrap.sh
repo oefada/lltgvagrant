@@ -35,6 +35,7 @@ ln -s $sharedDirectory/luxurylink /var/www/luxurylink
 ln -s $sharedDirectory/appshared /var/www/appshared
 ln -s $sharedDirectory/toolbox /var/www/toolbox
 ln -s $sharedDirectory/vacationist /var/www/vacationist
+ln -s $sharedDirectory/api.luxurylink.com /var/www/api.luxurylink.com
 
 # Start services
 service apache2 start
@@ -44,20 +45,3 @@ service nginx start
 echo "images:/var/www/images /mnt/images nfs rsize=8192,wsize=8192,timeo=14,intr" >> /etc/fstab
 mkdir /mnt/images
 mount /mnt/images
-
-# Host entries
-# echo "127.0.1.1 lldev.luxurylink.com" >> /etc/hosts
-# echo "127.0.1.1 dev-vacationist.luxurylink.com" >> /etc/hosts
-# echo "127.0.1.1 dev-toolbox.luxurylink.com" >> /etc/hosts
-# echo "127.0.1.1 dev.api.luxurylink.com" >> /etc/hosts
-
-### Application setup
-
-# Luxury Link
-# ln -s /var/www/luxurylink/app/config/ConfigLL-DEV.php /var/www/luxurylink/app/config/ConfigLL.php
-# ln -s /mnt/images /var/www/luxurylink/php/images
-# mkdir /var/www/luxurylink/smarty/cache /var/www/luxurylink/smarty/templates_c
-# chmod 777 /var/www/luxurylink/smarty/cache /var/www/luxurylink/smarty/templates_c
-
-# Toolbox
-# ln -s /var/www/toolbox/app/config/database.php.dev-migration /var/www/toolbox/app/config/database.php
