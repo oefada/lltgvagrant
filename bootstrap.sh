@@ -5,8 +5,8 @@ apt-get -y update
 apt-get -y upgrade
 
 # Install required packages
-# apt-get -y install php5 php5-curl php5-ldap php-apc php5-xdebug php5-memcached php5-memcache php5-mysql memcached libapache2-mod-rpaf nfs-common git unzip nginx ssh puppet
-# a2enmod expires headers rewrite rpaf
+apt-get -y install php5 php5-curl php5-ldap php-apc php5-xdebug php5-memcached php5-memcache php5-mysql memcached libapache2-mod-rpaf nfs-common git unzip nginx ssh puppet sendmail-bin
+a2enmod expires headers rewrite rpaf
 
 # Stop apache2 and nginx and backup base configs
 service nginx stop
