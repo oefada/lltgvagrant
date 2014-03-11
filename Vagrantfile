@@ -18,9 +18,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       parallels.cpus = 2
     end
     
-    config.vm.provider "virtualbox" do |virtualbox, override|
+    config.vm.provider "virtualbox" do |virtualbox|
       virtualbox.customize ["modifyvm", :id, "--memory", "2048"]
       virtualbox.customize ["modifyvm", :id, "--cpus", "2"]
       virtualbox.customize ["modifyvm", :id, "--ioapic", "on"]
+    end
+    
+    config.vm.provider "vmware_fusion" do |vmware_fusion|
+      vmware_fusion.vmx["memsize"] = "2048"
+      vmware_fusion.vmx["numvcpus"] = "2"
     end
 end
