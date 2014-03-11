@@ -40,6 +40,16 @@ ln -s $sharedDirectory/toolbox /var/www/toolbox
 ln -s $sharedDirectory/vacationist /var/www/vacationist
 ln -s $sharedDirectory/api.luxurylink.com /var/www/api.luxurylink.com
 
+if [ -d "$sharedDirectory/api.luxurylink.com" ]
+then
+    # setup api
+    cd $sharedDirectory/api.luxurylink.com
+    composer install
+    chmod -R 777 app/cache app/logs
+    cd $sharedDirectory/api.luxurylink.com/web
+    ln -s app_dev.php app.php
+fi
+
 # Start services
 service apache2 start
 service nginx start
