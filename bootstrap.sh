@@ -27,7 +27,7 @@ then
     sharedDirectory="/media/psf/vagrant"
 elif [ -d "/vagrant" ]
 then
-    # virtualbox
+    # virtualbox, vmware
     sharedDirectory="/vagrant"
 fi
 
