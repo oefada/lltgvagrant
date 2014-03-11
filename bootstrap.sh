@@ -8,6 +8,9 @@ apt-get -y upgrade
 apt-get -y install php5 php5-curl php5-ldap php-apc php5-xdebug php5-memcached php5-memcache php5-mysql memcached libapache2-mod-rpaf nfs-common git unzip nginx ssh puppet sendmail-bin
 a2enmod expires headers rewrite rpaf
 
+# Install composer
+curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin -- --filename=composer
+
 # Stop apache2 and nginx and backup base configs
 service nginx stop
 service apache2 stop
