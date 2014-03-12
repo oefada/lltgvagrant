@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.box = "chef/ubuntu-12.04"
     config.vm.hostname = "lldev"
-    config.vm.network :private_network, ip: "10.11.12.30", mac: "001C4270F501", netmask: "255.255.255.0"
+    config.vm.network :private_network, ip: "10.11.12.30", netmask: "255.255.255.0"
     config.vm.synced_folder "../", "/vagrant"
     config.vm.boot_timeout = 1200
     config.vm.provision :shell, :inline => "/vagrant/llvagrant/bootstrap.sh"
