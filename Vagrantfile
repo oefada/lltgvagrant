@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :private_network, ip: "10.11.12.30", netmask: "255.255.255.0"
     config.vm.network "forwarded_port", guest: 80, host: 80
     config.vm.network "forwarded_port", guest: 443, host: 443
-    config.vm.synced_folder "../", "/vagrant", type: "nfs"
+    config.vm.synced_folder "../", "/vagrant"
     config.vm.boot_timeout = 1200
     config.vm.provision :shell, :inline => "/vagrant/llvagrant/bootstrap.sh"
     
