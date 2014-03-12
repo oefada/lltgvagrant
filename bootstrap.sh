@@ -40,9 +40,54 @@ ln -s $sharedDirectory/toolbox /var/www/toolbox
 ln -s $sharedDirectory/vacationist /var/www/vacationist
 ln -s $sharedDirectory/api.luxurylink.com /var/www/api.luxurylink.com
 
+# NFS Mount images
+echo "images:/var/www/images /mnt/images nfs rsize=8192,wsize=8192,timeo=14,intr" >> /etc/fstab
+mkdir /mnt/images
+mount /mnt/images
+
+### Setup Applications
+
+# setup luxurylink
+if [ -d "$sharedDirectory/luxurylink" ]
+then
+    cd $sharedDirectory/luxurylink/app/config
+    ln -s ConfigLL-DEV.php ConfigLL.php
+    cd $sharedDirectory/luxurylink/php/community/includes
+    ln -s config.php.development config.php
+    cd $sharedDirectory/luxurylink/php
+    ln -s /mnt/images images
+    cd $sharedDirectory
+    mkdir luxurylink/smarty/cache luxurylink/smarty/templates_c
+    chmod 777 luxurylink/smarty/cache luxurylink/smarty/templates_c
+fi
+
+# setup toolbox
+if [ -d "$sharedDirectory/toolbox" ]
+then
+    cd $sharedDirectory/toolbox/app/config/
+    ln -s database.php.dev-migration database.php
+    cd $sharedDirectory/toolbox/app/vendors/
+    ln -s ../../../appshared .
+    cd $sharedDirectory
+    chmod 777 toolbox/app/tmp
+fi
+
+# setup vcom
+if [ -d "$sharedDirectory/vacationist" ]
+then
+    cd $sharedDirectory/vacationist/frontend/app/config
+    ln -s ConfigVCOM-DEV.php ConfigVCOM.php
+    cd $sharedDirectory/vacationist/frontend/public
+    ln -s .DEV.htaccess .htaccess
+    ln -s /mnt/images/vacationist images
+    cd $sharedDirectory/vacationist/backend/public
+    ln -s .DEV.htaccess .htaccess
+    cd $sharedDirectory
+fi
+
+# setup api
 if [ -d "$sharedDirectory/api.luxurylink.com" ]
 then
-    # setup api
     cd $sharedDirectory/api.luxurylink.com
     composer install
     chmod -R 777 app/cache app/logs
@@ -53,8 +98,3 @@ fi
 # Start services
 service apache2 start
 service nginx start
-
-# NFS Mount images
-echo "images:/var/www/images /mnt/images nfs rsize=8192,wsize=8192,timeo=14,intr" >> /etc/fstab
-mkdir /mnt/images
-mount /mnt/images
