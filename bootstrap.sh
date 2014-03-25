@@ -5,7 +5,7 @@ apt-get -y update
 apt-get -y upgrade
 
 # Install required packages
-apt-get -y install curl php5 php5-curl php5-ldap php-apc php5-xdebug php5-memcached php5-memcache php5-mysql memcached libapache2-mod-rpaf nfs-common git unzip nginx ssh puppet sendmail-bin
+apt-get -y install curl php5 php5-curl php5-ldap php-apc php5-xdebug php5-memcached php5-memcache php5-mysql php5-tidy memcached libapache2-mod-rpaf nfs-common git unzip nginx ssh puppet sendmail-bin
 a2enmod expires headers rewrite rpaf
 
 # Install composer

@@ -13,7 +13,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     
     config.vm.provider "parallels" do |parallels, override|
       override.vm.box = "parallels/ubuntu-12.04"
-      override.vm.provision :shell, :inline => "/media/psf/vagrant/llvagrant/bootstrap.sh"
       parallels.memory = 2048
       parallels.cpus = 2
     end
