@@ -95,6 +95,9 @@ then
     ln -s app_dev.php app.php
 fi
 
+# Add host entries
+echo "127.0.1.1 dev-toolbox.luxurylink.com dev-luxurylink.luxurylink.com dev-vacationist.luxurylink.com dev.api.luxurylink.com" >> /etc/hosts
+
 # Start services
 service apache2 start
 service nginx start
