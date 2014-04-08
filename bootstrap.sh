@@ -65,7 +65,7 @@ fi
 if [ -d "$sharedDirectory/toolbox" ]
 then
     cd $sharedDirectory/toolbox/app/config/
-    ln -s database.php.dev-migration database.php
+    ln -s database.dev.php database.php
     cd $sharedDirectory/toolbox/app/vendors/
     ln -s ../../../appshared .
     cd $sharedDirectory
