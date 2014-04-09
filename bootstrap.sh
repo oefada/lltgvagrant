@@ -68,6 +68,8 @@ then
     ln -s database.dev.php database.php
     cd $sharedDirectory/toolbox/app/vendors/
     ln -s ../../../appshared .
+    cd $sharedDirectory/toolbox/app/webroot/
+    ln -s /mnt/images images
     cd $sharedDirectory
     chmod 777 toolbox/app/tmp
 fi
