@@ -17,14 +17,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       parallels.cpus = 2
     end
     
-    config.vm.provider "virtualbox" do |virtualbox, override|
-      virtualbox.customize ["modifyvm", :id, "--memory", "2048"]
-      virtualbox.customize ["modifyvm", :id, "--cpus", "2"]
-      virtualbox.customize ["modifyvm", :id, "--ioapic", "on"]
-      override.vm.network "forwarded_port", guest: 80, host: 80
-      override.vm.network "forwarded_port", guest: 443, host: 443
-    end
-    
     config.vm.provider "vmware_fusion" do |vmware_fusion, override|
       vmware_fusion.vmx["memsize"] = "2048"
       vmware_fusion.vmx["numvcpus"] = "2"
