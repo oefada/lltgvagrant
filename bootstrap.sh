@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Add host entries
+echo "127.0.0.1 localhost.localdomain localhost lldev dev-toolbox.luxurylink.com dev-luxurylink.luxurylink.com dev-vacationist.luxurylink.com dev.api.luxurylink.com" >> /etc/hosts
+
 # Upgrade base
 apt-get -y update
 apt-get -y upgrade
@@ -96,9 +99,6 @@ then
     cd $sharedDirectory/api.luxurylink.com/web
     ln -s app_dev.php app.php
 fi
-
-# Add host entries
-echo "127.0.1.1 dev-toolbox.luxurylink.com dev-luxurylink.luxurylink.com dev-vacationist.luxurylink.com dev.api.luxurylink.com" >> /etc/hosts
 
 # Start services
 service apache2 start
